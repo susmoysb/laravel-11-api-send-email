@@ -15,7 +15,9 @@ class TestEmailController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => ['required', 'email'],
             'subject' => ['required', 'min:5', 'max:255'],
-            'body' => ['required', 'min:10',]
+            'body' => ['required', 'min:10',],
+            'file' => ['required', 'file'],
+            'image' => ['nullable', 'image'],
         ]);
 
         if ($validator->fails()) {
