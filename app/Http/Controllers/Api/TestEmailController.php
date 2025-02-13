@@ -16,7 +16,7 @@ class TestEmailController extends Controller
             'email' => ['required', 'email'],
             'subject' => ['required', 'min:5', 'max:255'],
             'body' => ['required', 'min:10',],
-            'file' => ['required', 'file'],
+            'file' => ['nullable', 'file'],
             'image' => ['nullable', 'image'],
         ]);
 
@@ -29,7 +29,7 @@ class TestEmailController extends Controller
             Mail::to($validatedData['email'])->send(new TestEmail($validatedData));
             return response()->json(['message' => 'Email sent successfully.']);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to send email.'], 500);
+            return response()->json(['error' => 'Failed to send email.', 'message' => $e->getMessage()], 500);
         }
     }
 }

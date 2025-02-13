@@ -7,8 +7,8 @@
 Click to Verify
 </x-mail::button>
 
-@if (!empty($data['image']))
-    <img src="{{ 'data:' . $data['image']->getClientMimeType() . ';base64,' . base64_encode($data['image']->get()) }}">
+@if (!empty($image))
+<img src="{{ 'data:' . $image['mime'] . ';base64,' . $image['contents'] }}" alt="Uploaded Image" style="max-width: 100%; height: auto;">
 @endif
 
 Thanks,<br>
