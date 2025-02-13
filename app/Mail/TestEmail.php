@@ -16,7 +16,7 @@ class TestEmail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public array $data)
     {
         //
     }
@@ -27,7 +27,7 @@ class TestEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Test Email',
+            subject: $this->data['subject'],
         );
     }
 

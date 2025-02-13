@@ -1,10 +1,10 @@
 <x-mail::message>
-# Introduction
+# {{ $data['subject'] }}
 
-The body of your message.
+{{ $data['body'] }}
 
 <x-mail::button :url="''">
-Button Text
+Click to Verify
 </x-mail::button>
 
 Thanks,<br>
